@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOROMA</title>
+    <meta name="description" content="portfolio site for Brahima Ann">
+    <meta name="author" content="Brahima Ann">
+    <meta name="keywords" content="portfolio, Brahima Ann, african, black, photography, creative, artist, videography, minnesota, projects, Minneapolis">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9T1GT9RXZY"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init("IaF2Ynx3zGAYW16su"); // Replace "your_service_id" with your actual service ID
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-9T1GT9RXZY');
+    </script>
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="Asset 1.svg" type="svg">
+</head>
+<body class="container-fluid">
+    <header class="contactheader">
+        <nav class="containerlinkbox">
+            <div class="linkbox">
+                <a class="title" href="index.html"> HOME </a>
+                <a class="title" href="projects.html"> PROJECTS </a>
+                <div class="spacer"></div>
+                <a class="title" href="about.html"> ABOUT </a>
+                <a class="title active" href="contact.html">CONTACT</a>
+            </div>
+        </nav>
+
+        <div class="h1container">
+            <h1 class="contacth1">Please don't hesitate to contact me</h1>
+            <div class="container">
+                <form id="contact-form">
+                    <input type="hidden" name="contact_number">
+                    <label for="fname"> Name</label>
+                    <input type="text" id="fname" name="user_name" placeholder="Your name..">
+                    <label for="lname"> Email</label>
+                    <input type="text" id="lname" name="user_email" placeholder="Your email..">
+
+                    <textarea id="subject" name="message" placeholder="Write something.." style="height:200px"></textarea>
+
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="coversocial contactcoversocial">
+            <a target="_blank" class="coverinstagram" href="https://www.instagram.com/bo.roma/">INSTAGRAM</a>
+            <div class="spacer"></div>
+            <!-- <a target="_blank" class="coverflickr" href="https://www.flickr.com/people/191101266@N05/">FLICKR</a>-->
+        </div>
+    </header>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_g0gr8jg', 'template_ilaryeo', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                        document.getElementById('contact-form').reset();
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
